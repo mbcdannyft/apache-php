@@ -13,6 +13,16 @@ COPY security.conf /etc/apache2/conf-available/
 
 RUN echo '<?php phpinfo();' > /var/www/html/index.php
 
+ENV MYSQLI_DEFAULT_PORT null
+ENV MYSQLI_DEFAULT_HOST null
+ENV MYSQLI_DEFAULT_USER null
+ENV MYSQLI_DEFAULT_PASSWORD null
+
+RUN echo "mysqli.default_port = $MYSQLI_DEFAULT_PORT"     >  /etc/php5/apache2/conf.d/02-mysqli-defaults.ini
+RUN echo "mysqli.default_host = $MYSQLI_DEFAULT_HOST"     >> /etc/php5/apache2/conf.d/02-mysqli-defaults.ini
+RUN echo "mysqli.default_user = $MYSQLI_DEFAULT_USER"     >> /etc/php5/apache2/conf.d/02-mysqli-defaults.ini
+RUN echo "mysqli.default_pw   = $MYSQLI_DEFAULT_PASSWORD" >> /etc/php5/apache2/conf.d/02-mysqli-defaults.ini
+
 EXPOSE 80
 
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
