@@ -11,6 +11,8 @@ RUN apt-get clean
 COPY 01-security.ini /etc/php5/apache2/conf.d/
 COPY security.conf /etc/apache2/conf-available/
 
+RUN a2enmod rewrite
+
 RUN echo '<?php phpinfo();' > /var/www/html/index.php
 
 ENV MYSQLI_DEFAULT_PORT null
