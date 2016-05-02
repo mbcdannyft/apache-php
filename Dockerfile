@@ -12,7 +12,6 @@ COPY 01-security.ini /etc/php5/apache2/conf.d/
 COPY security.conf /etc/apache2/conf-available/
 
 RUN a2enmod rewrite
-RUN a2enmod mod-security
 
 RUN echo '<?php phpinfo();' > /var/www/html/index.php
 
