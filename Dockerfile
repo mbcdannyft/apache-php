@@ -1,6 +1,6 @@
 FROM centos:7
 
-RUN apt-get update
+RUN yum -y update
 RUN yum -y install epel-release
 RUN yum -y install httpd mod_security
 RUN yum -y install php php-devel php-pecl-redis php-pecl-zendopcache php-mysql
