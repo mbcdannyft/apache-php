@@ -1,27 +1,12 @@
-FROM centos:7
+FROM ubuntu:14.04
 
-RUN yum -y update && yum -y upgrade
-RUN yum -y install httpd
-RUN yum -y install mod_security
-RUN yum -y install php
-#RUN yum -y install php-devel
-RUN yum -y install php-pecl-zendopcache
-RUN yum -y install php-mysql
-#RUN yum -y install php-gd
-#RUN yum -y install php-odbc
-#RUN yum -y install php-pear
-RUN yum -y install php-xml
-RUN yum -y install php-mbstring
-#RUN yum -y install php-snmp
-RUN yum -y install php-soap
-RUN yum -y install wget
-RUN yum -y install curl
-RUN yum -y install curl-devel
+RUN apt-get update && apt-get upgrade
 
-RUN yum -y install epel-release
-RUN yum -y install php-pecl-redis
+RUN apt-get install apache2 mod_security
+RUN apt-get install php5 libapache2-mod-php5 php5-mcrypt php5-mysql
+RUN apt-get install wget
 
-RUN yum clean all
+RUN apt-get clean
 
 EXPOSE 80
 
