@@ -16,6 +16,7 @@ RUN yum -y install php-xml
 RUN yum -y install php-mbstring
 RUN yum -y install php-snmp
 RUN yum -y install php-soap
+RUN yum -y install wget
 RUN yum -y install curl
 RUN yum -y install curl-devel
 RUN yum clean all
