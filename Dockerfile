@@ -13,8 +13,6 @@ COPY security.conf /etc/apache2/conf-available/
 
 RUN a2enmod rewrite
 
-RUN echo '<?php phpinfo();' > /var/www/html/index.php
-
 ENV MYSQLI_DEFAULT_PORT null
 ENV MYSQLI_DEFAULT_HOST null
 ENV MYSQLI_DEFAULT_USER null
