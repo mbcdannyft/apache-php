@@ -10,6 +10,7 @@ CMD curl https://www.cloudflare.com/static/misc/mod_cloudflare/ubuntu/mod_cloudf
 CMD dpkg -i /tmp/mod_cloudflare.dep
 CMD apt-get -y install apache2-prefork-dev
 CMD apxs2 -iac mod_cloudflare.c
+CMD rm -f /tmp/mod_cloudflare.dep
 
 RUN apt-get clean
 
