@@ -29,6 +29,12 @@ RUN echo "mysqli.default_host = $MYSQLI_DEFAULT_HOST"     >> /etc/php5/apache2/c
 RUN echo "mysqli.default_user = $MYSQLI_DEFAULT_USER"     >> /etc/php5/apache2/conf.d/02-mysqli-defaults.ini
 RUN echo "mysqli.default_pw   = $MYSQLI_DEFAULT_PASSWORD" >> /etc/php5/apache2/conf.d/02-mysqli-defaults.ini
 
+ENV REMOVE_RULES NONE
+
+COPY setup.py /tmp/
+CMD python3 /tmp/setup.py
+CMD rm /tmp/setup.py
+
 EXPOSE 80
 
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
