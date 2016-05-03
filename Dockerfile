@@ -9,6 +9,9 @@ RUN apt-get -y install wget
 
 RUN apt-get clean
 
+ENV ADMIN_EMAIL webmaster@localhost
+ENV SERVER_NAME www.example.com
+
 COPY 01-security.ini /etc/php5/apache2/conf.d/
 COPY security.conf /etc/apache2/conf-available/
 
