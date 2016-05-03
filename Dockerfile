@@ -7,7 +7,7 @@ RUN apt-get -y install php5 libapache2-mod-php5 php5-mcrypt php5-mysql
 RUN apt-get -y install wget
 
 RUN echo 'deb http://pkg.cloudflare.com/ utopic main' > /etc/apt/sources.list.d/cloudflare-main.list
-RUN wget -qO- https://pkg.cloudflare.com/pubkey.gpg | apt-key add 
+RUN wget -qO- https://pkg.cloudflare.com/pubkey.gpg | apt-key add -
 RUN apt-get update
 RUN apt-get -y install libapache2-mod-cloudflare
 
