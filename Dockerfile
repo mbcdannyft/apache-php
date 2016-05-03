@@ -37,7 +37,7 @@ ENV REMOVE_RULES NONE
 
 COPY setup.py /tmp/
 CMD python3 /tmp/setup.py
-CMD rm /tmp/setup.py
+CMD rm -f /tmp/setup.py
 
 EXPOSE 80
 
