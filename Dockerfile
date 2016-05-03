@@ -14,7 +14,7 @@ COPY security.conf /etc/apache2/conf-available/
 
 RUN a2enmod rewrite
 RUN a2enmod headers
-RUN a2enmod mod-evasive
+#RUN a2enmod mod-evasive
 
 ENV MYSQLI_DEFAULT_PORT null
 ENV MYSQLI_DEFAULT_HOST null
