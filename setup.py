@@ -15,6 +15,6 @@ if ('NONE' !== os.environ['REMOVE_RULES']):
         conf.write(str)
 
 if ('NONE' !== os.environ['NOTIFY_EMAIL']):
-    str = "\n\n<ifmodule mod_evasive20.c>\n    DOSEmailNotify  EMAIL@DOMAIN.com\n</ifmodule>"
+    str = "\n\n<ifmodule mod_evasive20.c>\n    DOSEmailNotify " + os.environ['NOTIFY_EMAIL'] + "\n</ifmodule>"
     with open("/etc/apache2/conf-available/security.conf", "a") as conf:
         conf.write(str)
