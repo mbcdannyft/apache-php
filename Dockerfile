@@ -14,7 +14,7 @@ RUN apt-get -y install libapache2-mod-cloudflare
 RUN apt-get clean
 
 ENV ADMIN_EMAIL dt@mbc-design.dk
-ENV SERVER_NAME av-cables.dk
+ENV SERVER_NAME example.com
 
 COPY 01-security.ini /etc/php5/apache2/conf.d/
 COPY security.conf /etc/apache2/conf-available/
