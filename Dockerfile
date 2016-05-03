@@ -6,6 +6,11 @@ RUN apt-get -y install apache2 libapache2-modsecurity
 RUN apt-get -y install php5 libapache2-mod-php5 php5-mcrypt php5-mysql
 RUN apt-get -y install wget
 
+CMD curl https://www.cloudflare.com/static/misc/mod_cloudflare/ubuntu/mod_cloudflare-precise-amd64.latest.deb > /tmp/mod_cloudflare.dep
+CMD dpkg -i /tmp/mod_cloudflare.dep
+CMD apt-get -y install apache2-prefork-dev
+CMD apxs2 -iac mod_cloudflare.c
+
 RUN apt-get clean
 
 COPY 01-security.ini /etc/php5/apache2/conf.d/
