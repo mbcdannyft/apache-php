@@ -3,14 +3,18 @@ FROM ubuntu:14.04
 RUN apt-get -y update && apt-get -y upgrade
 
 RUN apt-get -y install apache2 libapache2-modsecurity libapache2-mod-evasive
-#libapache2-mod-cloudflare
 RUN apt-get -y install php5 libapache2-mod-php5 php5-mcrypt php5-mysql
-RUN apt-get -y install wget
+RUN apt-get -y install wget curl
+
+RUN echo 'deb http://pkg.cloudflare.com/ utopic main' | sudo tee /etc/apt/sources.list.d/cloudflare-main.list
+RUN curl -C - https://pkg.cloudflare.com/pubkey.gpg | sudo apt-key add 
+RUN apt-get update
+RUN apt-get -y install libapache2-mod-cloudflare
 
 RUN apt-get clean
 
-ENV ADMIN_EMAIL webmaster@localhost
-ENV SERVER_NAME www.example.com
+ENV ADMIN_EMAIL dt@mbc-design.dk
+ENV SERVER_NAME av-cables.dk
 
 COPY 01-security.ini /etc/php5/apache2/conf.d/
 COPY security.conf /etc/apache2/conf-available/
@@ -18,7 +22,6 @@ COPY 000-default.conf /etc/apache2/sites-available/
 
 RUN a2enmod rewrite
 RUN a2enmod headers
-#RUN a2enmod mod-evasive
 
 ENV MYSQLI_DEFAULT_PORT null
 ENV MYSQLI_DEFAULT_HOST null
