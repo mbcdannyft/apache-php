@@ -19,7 +19,7 @@ ENV SERVER_NAME example.com
 COPY 01-security.ini /etc/php5/apache2/conf.d/
 COPY security.conf /etc/apache2/conf-available/
 COPY 000-default.conf /etc/apache2/sites-available/
-
+ 
 RUN a2enmod rewrite
 RUN a2enmod headers
 
