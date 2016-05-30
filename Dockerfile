@@ -41,4 +41,6 @@ CMD rm -f /tmp/setup.py
 
 EXPOSE 80
 
+VOLUME /var/www
+
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
